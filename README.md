@@ -5,7 +5,7 @@ Maildocker Java API
 0.9-SNAPSHOT
 
 ### Dependencies
-* Google GSON (2.6+)
+* Google Gson (2.6+)
 * Apache HttpComponents (4+)
 * Apache Commons IO (2.4+)
 
