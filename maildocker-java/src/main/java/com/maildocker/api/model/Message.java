@@ -16,6 +16,8 @@ public class Message implements Serializable {
 	
 	private String text;
 	
+	private String html;
+	
 	public static Message getExample(Address to) {
 		Message inst = new Message();
 		inst.setTo(to);
@@ -25,12 +27,31 @@ public class Message implements Serializable {
 		return inst;
 	}
 	
-	public static Message getInstance(Address from, Address to, String subject, String text) {
+	public static Message getInstance(Address from, Address to, String subject, String text, String html) {
 		Message inst = new Message();
 		inst.setFrom(from);
 		inst.setTo(to);
 		inst.setSubject(subject);
 		inst.setText(text);	
+		inst.setHtml(html);
+		return inst;
+	}
+	
+	public static Message getInstanceText(Address from, Address to, String subject, String text) {
+		Message inst = new Message();
+		inst.setFrom(from);
+		inst.setTo(to);
+		inst.setSubject(subject);
+		inst.setText(text);	
+		return inst;
+	}
+	
+	public static Message getInstanceHtml(Address from, Address to, String subject, String html) {
+		Message inst = new Message();
+		inst.setFrom(from);
+		inst.setTo(to);
+		inst.setSubject(subject);
+		inst.setHtml(html);
 		return inst;
 	}
 
@@ -65,6 +86,14 @@ public class Message implements Serializable {
 	public void setText(String text) {
 		this.text = text;
 //		this.text = StringUtil.replaceSpecialCharToUnicode(text);
+	}
+
+	public String getHtml() {
+		return html;
+	}
+
+	public void setHtml(String html) {
+		this.html = html;
 	}
 
 }

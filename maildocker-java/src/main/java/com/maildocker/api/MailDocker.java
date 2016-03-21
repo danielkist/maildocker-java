@@ -5,6 +5,7 @@ import com.maildocker.api.http.BaseHttpBuilder;
 import com.maildocker.api.model.Authorization;
 import com.maildocker.api.model.Message;
 import com.maildocker.api.model.MessageResponse;
+import com.maildocker.api.model.TemplateMessage;
 
 public class MailDocker {
 	
@@ -25,6 +26,13 @@ public class MailDocker {
 	}
 	
 	public MessageResponse send(Message message) throws MailDocketException {
+		String response = http.call(authorization, "/mail/", message);
+		if(response.contains("error_code")) throw new MailDocketException(response);
+		System.out.println(response);
+		return null;
+	}
+	
+	public MessageResponse send(TemplateMessage message) throws MailDocketException {
 		String response = http.call(authorization, "/mail/", message);
 		if(response.contains("error_code")) throw new MailDocketException(response);
 		System.out.println(response);
