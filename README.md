@@ -2,7 +2,7 @@
 Maildocker Java API
 
 ### Version
-0.9-SNAPSHOT
+0.9.1-SNAPSHOT
 
 ### Dependencies
 * Google Gson (2.6+)
@@ -11,20 +11,48 @@ Maildocker Java API
 
 #Send message Sample
 ```
-public class SendMessageDemo {
+import java.util.Date;
+
+import com.maildocker.api.MailDocker;
+import com.maildocker.api.exception.MailDocketException;
+import com.maildocker.api.model.Address;
+import com.maildocker.api.model.Authorization;
+import com.maildocker.api.model.Message;
+import com.maildocker.api.model.TemplateMessage;
+
+public class MaildockerTest {
 	
-	//Domain = Your subdomain. Ex: http://seudominio.ecentry.io/
 	public static void main(String[] args) throws MailDocketException {
-		MailDocker md = new MailDocker("{domain}", "{key}", "{secret}");
-		md.send(getMessage());
+		Authorization auth = Authorization.getInstance("{subdomain}", "{key}", "{secret}");
+		MailDocker mail = new MailDocker(auth);
+		mail.send(getMessage());
+		mail.send(getTemplateMessage());
 	}
 	
 	private static Message getMessage() {
-		Address from   = Address.getInstance("From", "from@domain.com");
-		Address to     = Address.getInstance("To", "dest@dommain.com");
-		String subject = "Maildocker Java API";
-		String text    = "Testing. It works?"; 
-		return Message.getInstance(from, to, subject, text);
+		Address from = Address.getInstance("{name}", "{account");
+		Address to   = Address.getInstance("{name}", "{account");
+		Message message = new Message();
+		message.setFrom(from);
+		message.setTo(to);
+		message.setSubject("Maildocker Java API Demo");
+		message.setText("Message sent from Maildocker. Yay!!!");
+		message.setHtml("<h2>Html message sent from Maildocker.</h2><h1>Yay!!!</h1>");
+		return message;
 	}
+	
+	private static TemplateMessage getTemplateMessage() {
+		Address to = Address.getInstance("{name}", "{account");
+		TemplateMessage template = new TemplateMessage();
+		template.setTo(to);
+		template.setTemplate("{template_name}");
+        
+        //Some vars
+		template.addVar("{key}", {value});
+        template.addVar("datetime", new Date());
+        
+		return template;
+	}
+
 }
 ```

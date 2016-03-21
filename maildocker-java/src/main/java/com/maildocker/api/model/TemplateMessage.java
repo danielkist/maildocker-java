@@ -14,9 +14,9 @@ public class TemplateMessage implements Serializable {
 	
 	private Map<String, String> merge_vars;
 
-	public void addVar(String key, String value) {
+	public void addVar(String key, Object value) {
 		if(this.getMergeVars() == null) this.setMergeVars(new HashMap<String, String>());
-		this.getMergeVars().put(key, value);
+		this.getMergeVars().put(key, value.toString());
 	}
 	
 	public Address getTo() {
