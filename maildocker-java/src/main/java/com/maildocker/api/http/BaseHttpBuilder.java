@@ -24,8 +24,8 @@ import com.maildocker.api.util.Base64Util;
 
 public class BaseHttpBuilder {
 	
-	private final Gson gson = new GsonBuilder().create();
-	private String URL      = "http://%s.ecentry.io/api/maildocker/v1";
+	private final Gson gson  = new GsonBuilder().create();
+	private String URL       = "http://%s.ecentry.io/api";
 	
 	/**
 	 * HTTP Call
