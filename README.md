@@ -3,7 +3,7 @@ Maildocker Java API
 http://maildocker.com/br/
 
 ### Version
-0.9.2-RELEASE [Download] (https://github.com/danielkist/maildocker-java/raw/master/maildocker-java-0.9.2-RELEASE.jar)
+0.9.2-RELEASE [Download] (https://github.com/danielkist/maildocker-java/blob/master/lib/maildocker-java-0.9.2-RELEASE.jar?raw=true)
 
 ### Dependencies
 * Google Gson (2.6+)
